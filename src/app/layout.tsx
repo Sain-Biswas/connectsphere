@@ -1,12 +1,13 @@
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import AuthContext from "./AuthContext";
 import "./globals.css";
 import { ThemeProvider } from "./theme_providers";
 
-export const fontSans = FontSans({
+const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -38,6 +39,7 @@ export default function RootLayout({
           <AuthContext>
             {children}
             <Toaster />
+            <SpeedInsights />
           </AuthContext>
         </ThemeProvider>
       </body>
