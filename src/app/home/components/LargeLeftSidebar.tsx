@@ -8,6 +8,7 @@ import SavedSolid from "@/resources/Icons/SavedSolid";
 import Settings from "@/resources/Icons/Settings";
 
 const LargeLeftSidebar = () => {
+    const btnClasses = 'text-primary h-10 flex justify-center md:w-10 lg:w-full hover:text-primary dark:hover:bg-darkmode-200';
     return (
         <>
             <Button
@@ -15,7 +16,7 @@ const LargeLeftSidebar = () => {
 
                 }}
                 variant='ghost'
-                className="h-10 flex justify-center md:w-10 lg:w-full dark:hover:text-white dark:hover:bg-darkmode-200"
+                className={btnClasses}
             >
                 <div className="flex w-[9.4rem] justify-start ">
                     <Home className="h-8 w-8" />
@@ -27,7 +28,7 @@ const LargeLeftSidebar = () => {
 
                 }}
                 variant='ghost'
-                className="h-10 flex justify-center md:w-10 lg:w-full dark:hover:text-white dark:hover:bg-darkmode-200"
+                className={btnClasses}
             >
                 <div className="flex w-[9.4rem] justify-start ">
                     <Community className="h-8 w-8" />
@@ -39,7 +40,7 @@ const LargeLeftSidebar = () => {
 
                 }}
                 variant='ghost'
-                className="h-10 flex justify-center md:w-10 lg:w-full dark:hover:text-white dark:hover:bg-darkmode-200"
+                className={btnClasses}
             >
                 <div className="flex w-[9.4rem] justify-start ">
                     <SavedSolid className="h-8 w-8" />
@@ -51,7 +52,7 @@ const LargeLeftSidebar = () => {
 
                 }}
                 variant='ghost'
-                className="h-10 flex justify-center md:w-10 lg:w-full dark:hover:text-white dark:hover:bg-darkmode-200"
+                className={btnClasses}
             >
                 <div className="flex w-[9.4rem] justify-start ">
                     <Messages className="h-8 w-8" />
@@ -63,7 +64,7 @@ const LargeLeftSidebar = () => {
 
                 }}
                 variant='ghost'
-                className="h-10 flex justify-center md:w-10 lg:w-full dark:hover:text-white dark:hover:bg-darkmode-200"
+                className={btnClasses}
             >
                 <div className="flex w-[9.4rem] justify-start ">
                     <NewPlus className="h-8 w-8" />
@@ -75,7 +76,7 @@ const LargeLeftSidebar = () => {
 
                 }}
                 variant='ghost'
-                className="h-10 flex justify-center md:w-10 lg:w-full dark:hover:text-white dark:hover:bg-darkmode-200"
+                className={btnClasses}
             >
                 <div className="flex w-[9.4rem] justify-start ">
                     <Settings className="h-8 w-8" />

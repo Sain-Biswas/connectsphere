@@ -10,6 +10,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Popover } from '@/components/ui/popover';
 import { RadioGroup } from '@/components/ui/radio-group';
 import { cn } from '@/lib/utils';
+import Email from '@/resources/Icons/Email';
+import Gender from '@/resources/Icons/Gender';
+import Person from '@/resources/Icons/Person';
 import { CalendarIcon, EyeClosedIcon, EyeOpenIcon } from '@radix-ui/react-icons';
 import { PopoverContent, PopoverTrigger } from '@radix-ui/react-popover';
 import { RadioGroupItem } from '@radix-ui/react-radio-group';
@@ -18,9 +21,6 @@ import { format } from 'date-fns';
 import { useState } from "react";
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import Email from '@/resources/Icons/Email';
-import Gender from '@/resources/Icons/Gender';
-import Person from '@/resources/Icons/Person';
 
 
 const registerSchema = z.object({
@@ -72,15 +72,15 @@ const Register = () => {
 
     return (
         <Form {...registerForm}>
-            <form onSubmit={registerForm.handleSubmit(onRegisterSubmit)} className='w-full'>
+            <form onSubmit={registerForm.handleSubmit(onRegisterSubmit)} className='w-full font-mono'>
                 <div className='grid grid-cols-2 my-2 gap-2'>
                     <FormField
                         control={registerForm.control}
                         name='firstName'
                         render={({ field }) => (
-                            <div className='rounded-xl p-1 w-full dark:bg-card ring-1 flex justify-center items-center'>
+                            <div className='rounded-xl p-1 w-full bg-card ring-1 flex justify-center items-center'>
                                 <FormItem className='px-4 flex-grow'>
-                                    <FormLabel className='p-0 m-0 h-1 text-xs'>First Name</FormLabel>
+                                    <FormLabel className='p-0 m-0 h-1 text-sm'>First Name</FormLabel>
                                     <FormControl className='m-0 p-0'>
                                         <Input className='border-none h-5 shadow-none focus-visible:ring-0' placeholder='First Name' {...field} />
                                     </FormControl>
@@ -94,9 +94,9 @@ const Register = () => {
                         control={registerForm.control}
                         name='lastName'
                         render={({ field }) => (
-                            <div className='rounded-xl p-1 w-full dark:bg-card ring-1 flex justify-center items-center'>
+                            <div className='rounded-xl p-1 w-full bg-card ring-1 flex justify-center items-center'>
                                 <FormItem className='px-4 flex-grow'>
-                                    <FormLabel className='p-0 m-0 h-1 text-xs'>Last Name</FormLabel>
+                                    <FormLabel className='p-0 m-0 h-1 text-sm'>Last Name</FormLabel>
                                     <FormControl className='m-0 p-0'>
                                         <Input className='border-none h-5 shadow-none focus-visible:ring-0' placeholder='Last Name' {...field} />
                                     </FormControl>
@@ -111,9 +111,9 @@ const Register = () => {
                     control={registerForm.control}
                     name='userName'
                     render={({ field }) => (
-                        <div className='rounded-xl p-1 w-full dark:bg-card ring-1 flex justify-center items-center'>
+                        <div className='rounded-xl p-1 w-full bg-card ring-1 flex justify-center items-center'>
                             <FormItem className='px-4 flex-grow'>
-                                <FormLabel className='p-0 m-0 h-1 text-xs'>Username</FormLabel>
+                                <FormLabel className='p-0 m-0 h-1 text-sm'>Username</FormLabel>
                                 <FormControl className='m-0 p-0'>
                                     <Input className='border-none h-5 shadow-none focus-visible:ring-0' placeholder='Username' {...field} />
                                 </FormControl>
@@ -127,9 +127,9 @@ const Register = () => {
                     control={registerForm.control}
                     name='password'
                     render={({ field }) => (
-                        <div className='my-2 rounded-xl p-1 w-full dark:bg-card ring-1 flex justify-center items-center'>
+                        <div className='my-2 rounded-xl p-1 w-full bg-card ring-1 flex justify-center items-center'>
                             <FormItem className='px-4 flex-grow'>
-                                <FormLabel className='text-xs'>Password</FormLabel>
+                                <FormLabel className='text-sm'>Password</FormLabel>
                                 <FormControl className='m-0 p-0'>
                                     <Input
                                         className='border-none h-5 shadow-none focus-visible:ring-0'
@@ -155,8 +155,8 @@ const Register = () => {
                     control={registerForm.control}
                     name='dateOfBirth'
                     render={({ field }) => (
-                        <FormItem className='dark:bg-card ring-1 px-4 py-1 rounded-xl'>
-                            <FormLabel className='text-xs'>Date of Birth</FormLabel>
+                        <FormItem className='bg-card ring-1 px-4 py-1 rounded-xl'>
+                            <FormLabel className='text-sm'>Date of Birth</FormLabel>
                             <Popover>
                                 <PopoverTrigger asChild>
                                     <FormControl>
@@ -190,7 +190,7 @@ const Register = () => {
                     control={registerForm.control}
                     name='gender'
                     render={({ field }) => (
-                        <FormItem className='dark:bg-card ring-1 rounded-xl my-2 p-1'>
+                        <FormItem className='bg-card ring-1 rounded-xl my-2 p-1'>
                             <FormLabel className='flex gap-3 items-center'>
                                 <p className='pl-4 text-sm'>Gender</p>
                                 <Gender className='' />
@@ -201,7 +201,7 @@ const Register = () => {
                                     defaultValue={field.value}
                                     className="flex justify-around p-1"
                                 >
-                                    <FormItem className={cn('py-1 px-3 rounded-lg', (field.value === 'male') && 'bg-primary')}>
+                                    <FormItem className={cn('py-1 px-3 rounded-lg', (field.value === 'male') && 'bg-primary text-white')}>
                                         <FormControl>
                                             <RadioGroupItem value="male" />
                                         </FormControl>
@@ -209,7 +209,7 @@ const Register = () => {
                                             Male
                                         </FormLabel>
                                     </FormItem>
-                                    <FormItem className={cn('py-1 px-3 rounded-lg', (field.value === 'female') && 'bg-primary')}>
+                                    <FormItem className={cn('py-1 px-3 rounded-lg', (field.value === 'female') && 'bg-primary text-white')}>
                                         <FormControl>
                                             <RadioGroupItem value="female" />
                                         </FormControl>
@@ -217,7 +217,7 @@ const Register = () => {
                                             Female
                                         </FormLabel>
                                     </FormItem>
-                                    <FormItem className={cn('py-1 px-3 rounded-lg', (field.value === 'other') && 'bg-primary')}>
+                                    <FormItem className={cn('py-1 px-3 rounded-lg', (field.value === 'other') && 'bg-primary text-white')}>
                                         <FormControl>
                                             <RadioGroupItem value="other" />
                                         </FormControl>

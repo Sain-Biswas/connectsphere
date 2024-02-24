@@ -19,6 +19,9 @@ const config = {
       },
     },
     extend: {
+      ringColor: {
+        DEFAULT: "hsl(var(--ring))",
+      },
       fontFamily: {
         sans: ["var(--fant-sans)", ...fontFamily.sans],
       },

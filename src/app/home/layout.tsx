@@ -11,7 +11,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
 
     return (
         <main
-            className="p-1 flex flex-col min-h-screen"
+            className="p-1 flex flex-col h-[100vh]"
         >
             <nav
                 className="flex justify-between items-center"
@@ -27,7 +27,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
                 <UserDropdown currentUser={currentUser} />
             </nav>
             <div
-                className="flex flex-col flex-grow md:grid md:grid-cols-10 md:grid-rows-1"
+                className="flex h-auto flex-col flex-grow md:grid md:grid-cols-10 md:grid-rows-1"
             >
                 <div
                     className="lg:col-span-2 md:col-span-1 ring-1"
@@ -38,11 +38,11 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
                         <LargeLeftSidebar />
                     </div>
                 </div>
-                <div className="flex-grow md:col-span-6 ring-1">
+                <div className="h-full md:col-span-6 ring-1">
                     {children}
                 </div>
-                <div className="lg:col-span-2 md:col-span-3 ring-1">
-
+                <div className="lg:col-span-2 md:col-span-3 ring-1 hidden md:block">
+                    Right Side Bar
                 </div>
             </div>
             <MobileFooter />

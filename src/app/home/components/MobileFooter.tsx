@@ -8,12 +8,13 @@ import SavedSolid from "@/resources/Icons/SavedSolid";
 import Settings from "@/resources/Icons/Settings";
 
 const MobileFooter = () => {
+    const btnClasses = 'hover:text-primary';
     return (
-        <div className='h-12 w-full ring-1 flex justify-around md:hidden items-center'>
+        <div className='h-12 w-full ring-1 flex justify-around md:hidden items-center text-primary'>
             <Button
                 variant='ghost'
                 size='icon'
-                className="dark:hover:bg-darkmode-300 dark:hover:text-white"
+                className={btnClasses}
                 onClick={() => {
 
                 }}
@@ -23,7 +24,7 @@ const MobileFooter = () => {
             <Button
                 variant='ghost'
                 size='icon'
-                className="dark:hover:bg-darkmode-300 dark:hover:text-white"
+                className={btnClasses}
                 onClick={() => {
 
                 }}
@@ -33,7 +34,7 @@ const MobileFooter = () => {
             <Button
                 variant='ghost'
                 size='icon'
-                className="dark:hover:bg-darkmode-300 dark:hover:text-white"
+                className={btnClasses}
                 onClick={() => {
 
                 }}
@@ -43,7 +44,7 @@ const MobileFooter = () => {
             <Button
                 variant='ghost'
                 size='icon'
-                className="dark:hover:bg-darkmode-300 dark:hover:text-white"
+                className={btnClasses}
                 onClick={() => {
 
                 }}
@@ -53,7 +54,7 @@ const MobileFooter = () => {
             <Button
                 variant='ghost'
                 size='icon'
-                className="dark:hover:bg-darkmode-300 dark:hover:text-white"
+                className={btnClasses}
                 onClick={() => {
 
                 }}
@@ -63,7 +64,7 @@ const MobileFooter = () => {
             <Button
                 variant='ghost'
                 size='icon'
-                className="dark:hover:bg-darkmode-300 dark:hover:text-white"
+                className={btnClasses}
                 onClick={() => {
 
                 }}

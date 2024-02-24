@@ -60,3 +60,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .bg-first-image {
+    background-image: url('../resources/Images/background.png');
+    background-size: cover;
+  }
+}

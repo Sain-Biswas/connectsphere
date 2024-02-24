@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import Person from '@/resources/Icons/Person';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { EyeClosedIcon, EyeOpenIcon } from '@radix-ui/react-icons';
 import { signIn, useSession } from 'next-auth/react';
@@ -11,7 +12,6 @@ import { useEffect, useState } from "react";
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
-import Person from '@/resources/Icons/Person';
 
 
 const loginSchema = z.object({
@@ -66,16 +66,16 @@ const Login = () => {
 
     return (
         <Form {...loginForm}>
-            <form onSubmit={loginForm.handleSubmit(onLoginSubmit)} className=''>
+            <form onSubmit={loginForm.handleSubmit(onLoginSubmit)} className='font-mono'>
                 <FormField
                     control={loginForm.control}
                     name='userName'
                     render={({ field }) => (
-                        <div className='my-2 rounded-xl p-1 w-full dark:bg-card ring-1 flex justify-center items-center'>
+                        <div className='my-2 rounded-xl p-1 w-full bg-card ring-1 flex justify-center items-center'>
                             <FormItem className='px-4 flex-grow'>
-                                <FormLabel className='p-0 m-0 h-1 text-xs'>Username</FormLabel>
+                                <FormLabel className='p-0 m-0 h-1 text-sm'>Username</FormLabel>
                                 <FormControl className='m-0 p-0'>
-                                    <Input className='border-none h-5 shadow-none focus-visible:ring-0' placeholder='username' {...field} />
+                                    <Input className='border-none h-5 shadow-none focus-visible:ring-0' placeholder='Username' {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -87,9 +87,9 @@ const Login = () => {
                     control={loginForm.control}
                     name='password'
                     render={({ field }) => (
-                        <div className='my-2 rounded-xl p-1 w-full dark:bg-card ring-1 flex justify-center items-center'>
+                        <div className='my-2 rounded-xl p-1 w-full bg-card ring-1 flex justify-center items-center'>
                             <FormItem className='px-4 flex-grow'>
-                                <FormLabel className='text-xs'>Password</FormLabel>
+                                <FormLabel className='text-sm'>Password</FormLabel>
                                 <FormControl className='m-0 p-0'>
                                     <Input
                                         className='border-none h-5 shadow-none focus-visible:ring-0'

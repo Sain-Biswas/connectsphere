@@ -45,7 +45,7 @@ const UserDropdown = (
                     <Button variant='ghost' className="hover:dark:bg-darkmode-200 p-1 hover:bg-lightmode-200 dark:text-white hover:dark:text-white h-14 flex items-center gap-1 focus-visible:ring-0">
                         <Avatar className="h-12 w-12 rounded-md">
                             <AvatarImage className="h-12 w-12 rounded-md" src={currentUser?.image || undefined} alt="" />
-                            <AvatarFallback className="h-12 w-12 rounded-md text-white bg-purple-700 dark:bg-darkmode-100">{currentUser?.firstName.charAt(0).toUpperCase()}{currentUser?.lastName.charAt(0).toUpperCase()}</AvatarFallback>
+                            <AvatarFallback className="h-12 w-12 rounded-md text-white bg-primary dark:bg-darkmode-100">{currentUser?.firstName.charAt(0).toUpperCase()}{currentUser?.lastName.charAt(0).toUpperCase()}</AvatarFallback>
                         </Avatar>
                         <div className="p">
                             <p className="hidden md:block font-mono text-lg">{currentUser?.firstName} {currentUser?.lastName}</p>
@@ -56,7 +56,7 @@ const UserDropdown = (
                     <DropdownMenuLabel className="flex items-center gap-1 flex-col">
                         <Avatar className="h-20 w-20 rounded-md">
                             <AvatarImage className="h-20 w-20 rounded-md" src={currentUser?.image || undefined} alt="" />
-                            <AvatarFallback className="h-20 w-20 text-3xl text-white rounded-md bg-purple-700">{currentUser?.firstName.charAt(0).toUpperCase()}{currentUser?.lastName.charAt(0).toUpperCase()}</AvatarFallback>
+                            <AvatarFallback className="h-20 w-20 text-3xl text-white rounded-md bg-primary">{currentUser?.firstName.charAt(0).toUpperCase()}{currentUser?.lastName.charAt(0).toUpperCase()}</AvatarFallback>
                         </Avatar>
                         <p className="font-mono dark:text-white text-xl font-extrabold">{currentUser?.firstName} {currentUser?.lastName}</p>
                         <p className="text-slate-500">{currentUser?.username}</p>
@@ -70,7 +70,7 @@ const UserDropdown = (
                             </DropdownMenuShortcut>
                         </DropdownMenuItem>
                         <DropdownMenuItem
-                            className="dark:focus:text-white dark:text-white transition-colors focus:bg-red-600 focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                            className="transition-colors focus:text-white focus:bg-red-600 data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
                             onClick={logout}
                         >
                             Logout
