@@ -168,7 +168,7 @@ const Post = () => {
             <CardFooter className="p-2 grid grid-cols-3">
                 <Button variant='ghost'>
                     <HeartOutline className="" />
-                    <span className="mx-1 sm:mx-2 text-sm sm:text-base">
+                    <span className="mx-1 sm:mx-2 text-sm sm:text-base hidden sm:inline">
                         Like
                     </span>
                 </Button>
@@ -176,7 +176,7 @@ const Post = () => {
                     <DialogTrigger asChild>
                         <Button variant='ghost'>
                             <Messages className="" />
-                            <span className="mx-1 sm:mx-2 text-sm sm:text-base">Comments</span>
+                            <span className="mx-1 sm:mx-2 text-sm sm:text-base hidden sm:inline">Comments</span>
                         </Button>
                     </DialogTrigger>
                     <DialogContent className="max-w-[600px] font-mono p-5">
@@ -247,7 +247,7 @@ const Post = () => {
                 </Dialog>
                 <Button variant='ghost' >
                     <SavedOutline className="" />
-                    <span className="mx-1 sm:mx-2 text-sm sm:text-base">
+                    <span className="mx-1 sm:mx-2 text-sm sm:text-base hidden sm:inline">
                         Save
                     </span>
                 </Button>
