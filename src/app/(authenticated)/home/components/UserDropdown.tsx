@@ -8,7 +8,6 @@ import { Users } from "@prisma/client";
 import { ExitIcon, PersonIcon } from "@radix-ui/react-icons";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 import { toast } from "sonner";
 
 
@@ -18,12 +17,6 @@ const UserDropdown = (
 ) => {
 
     const router = useRouter();
-
-    useEffect(() => {
-        if (!currentUser) {
-            router.push("/");
-        }
-    }, []);
 
     function logout() {
         signOut().then((res) => {
@@ -63,7 +56,12 @@ const UserDropdown = (
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuGroup>
-                        <DropdownMenuItem className="dark:text-white">
+                        <DropdownMenuItem
+                            className="dark:text-white"
+                            onClick={() => {
+                                router.push('/profile');
+                            }}
+                        >
                             Profile
                             <DropdownMenuShortcut>
                                 <PersonIcon />

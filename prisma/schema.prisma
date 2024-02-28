@@ -21,6 +21,7 @@ model Users {
   dateOfBirth    DateTime
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+  bio            String?
 
   postIds   String[] @db.ObjectId
   userPosts Posts[]  @relation("Posts")

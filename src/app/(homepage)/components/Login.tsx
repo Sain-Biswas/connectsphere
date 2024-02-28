@@ -36,7 +36,7 @@ const Login = () => {
         if (session?.status === 'authenticated') {
             router.push('/home');
         }
-    }, [router, session])
+    });
 
     const loginForm = useForm<loginFormType>({
         resolver: zodResolver(loginSchema),

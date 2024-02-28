@@ -178,7 +178,7 @@ const Register = () => {
                                         selected={field.value}
                                         onSelect={field.onChange}
                                         disabled={(date) => date > new Date()}
-                                        className='rounded-xl border border-slate-600 dark:border-darkmode-400'
+                                        className='rounded-xl border bg-background border-slate-600 dark:border-darkmode-400'
                                     />
                                 </PopoverContent>
                             </Popover>
