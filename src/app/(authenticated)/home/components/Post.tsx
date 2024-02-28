@@ -55,16 +55,16 @@ const Post = () => {
     }
 
     return (
-        <Card className="max-w-[38rem] m-auto font-mono mb-2">
-            <CardHeader className="flex flex-row justify-between p-3">
+        <Card className="max-w-[38rem] w-full m-auto font-mono mb-2">
+            <CardHeader className="flex flex-row flex-wrap justify-between p-3">
                 <div className="flex gap-2">
-                    <Avatar className="h-14 w-14 block">
+                    <Avatar className="h-10 md:h-14 w-10 md:w-14 block">
                         <AvatarImage src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1288&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                         <AvatarFallback className="bg-primary text-3xl">SB</AvatarFallback>
                     </Avatar>
                     <div className="flex flex-col justify-around">
-                        <CardTitle className="">Jaideep Singh Kumar</CardTitle>
-                        <CardDescription className="">jaideep.sihgh.kumar145@gmail.com</CardDescription>
+                        <CardTitle className="text-sm sm:text-base ">Jaideep Singh Kumar</CardTitle>
+                        <CardDescription className="text-sm sm:text-base hidden sm:block ">jaideep.sihgh.kumar145@gmail.com</CardDescription>
                     </div>
                 </div>
                 <div>
