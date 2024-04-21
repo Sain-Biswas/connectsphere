@@ -5,10 +5,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import Person from '@/resources/Icons/Person';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { EyeClosedIcon, EyeOpenIcon } from '@radix-ui/react-icons';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
@@ -26,17 +25,10 @@ const loginSchema = z.object({
 type loginFormType = z.infer<typeof loginSchema>
 
 const Login = () => {
-    const session = useSession();
     const router = useRouter();
 
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [isUploading, setIsUploading] = useState<boolean>(false);
-
-    useEffect(() => {
-        if (session?.status === 'authenticated') {
-            router.push('/home');
-        }
-    });
 
     const loginForm = useForm<loginFormType>({
         resolver: zodResolver(loginSchema),
@@ -102,10 +94,13 @@ const Login = () => {
                             <Button
                                 size='icon'
                                 variant='ghost'
-                                onClick={() => setShowPassword(current => !current)}
+                                onClick={(e: any) => {
+                                    e.preventDefault()
+                                    setShowPassword(current => !current)
+                                }}
                             >
                                 {
-                                    (showPassword) ? <EyeOpenIcon /> : <EyeClosedIcon />
+                                    // (showPassword) ? <EyeOpenIcon /> : <EyeClosedIcon />
                                 }
                             </Button>
                         </div>

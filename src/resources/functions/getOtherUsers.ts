@@ -1,18 +1,17 @@
 import prisma from '@/resources/prisma/prismadb';
 import getSession from './getSession';
+import getCurrentUser from './getCurrentUser';
 
 
-export default async function getCurrentUser() {
+export default async function getOtherUsers() {
     try {
-        const session = await getSession();
+        const current = await getCurrentUser();
 
-        if (!session?.user?.email) {
-            return undefined;
-        }
-
-        const currentUser = await prisma.users.findUnique({
+        const currentUser = await prisma.users.findMany({
             where: {
-                id: session.user.email || undefined
+                NOT: {
+                    id: current?.id
+                }
             },
         });
 

@@ -21,6 +21,8 @@ import { format } from 'date-fns';
 import { useState } from "react";
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 
 const registerSchema = z.object({
@@ -51,6 +53,7 @@ type registerFormType = z.infer<typeof registerSchema>
 const Register = () => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [isUploading, setIsUploading] = useState<boolean>(false);
+    const router = useRouter();
 
     const registerForm = useForm<registerFormType>({
         resolver: zodResolver(registerSchema),
@@ -65,7 +68,18 @@ const Register = () => {
             gender: values.gender,
             dateOfBirth: values.dateOfBirth,
         })
-            .then((res) => toast.success('Account created Successfully.'))
+            .then((res) => {
+                toast.success('Account created Successfully.')
+                signIn('credentials', {
+                    email: values.userName,
+                    password: values.password,
+                    redirect: false
+                }).then((callback) => {
+                    if (callback?.ok && !callback.error) {
+                        router.push('/home');
+                    }
+                })
+            })
             .catch((err) => toast.error("Server Error."))
             .finally(() => setIsUploading(false))
     }

@@ -25,15 +25,37 @@ model Users {
 
   postIds   String[] @db.ObjectId
   userPosts Posts[]  @relation("Posts")
+
+  commentsIds String[]  @db.ObjectId
+  comments    Comment[] @relation("commenter")
+
+  friendIds        String[] @db.ObjectId
+  acceptrequestIds String[] @db.ObjectId
+  sentrequestIds   String[] @db.ObjectId
 }
 
 model Posts {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   media       String[]
   description String?
+  createdAt   DateTime @default(now())
 
   likes String[] @db.ObjectId
 
   createdById String @db.ObjectId
   createdBy   Users  @relation("Posts", fields: [createdById], references: [id], onDelete: Cascade)
+
+  commentsId String[]  @db.ObjectId
+  comments   Comment[] @relation("comment")
+}
+
+model Comment {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  text String
+
+  commenterId String @db.ObjectId
+  commenter   Users  @relation("commenter", fields: [commenterId], references: [id], onDelete: Cascade)
+
+  postId String @db.ObjectId
+  post   Posts  @relation("comment", fields: [postId], references: [id], onDelete: Cascade)
 }

@@ -1,6 +1,6 @@
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 import logo from "@/resources/Images/logo.png";
-import getCurrentUser from "@/resources/actions/getCurrentUser";
+import getCurrentUser from "@/resources/functions/getCurrentUser";
 import Image from "next/image";
 import LargeLeftSidebar from "./home/components/LargeLeftSidebar";
 import MobileFooter from "./home/components/MobileFooter";
@@ -12,10 +12,10 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
 
     return (
         <main
-            className="p-1 flex flex-col h-screen "
+            className="flex flex-col h-screen "
         >
             <nav
-                className="flex justify-between items-center border-b-[1px]"
+                className="flex justify-between items-center border-b-[1px] px-1"
             >
                 <div
                     className="w-56 h-16"

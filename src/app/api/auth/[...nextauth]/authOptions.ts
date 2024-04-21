@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
                     });
 
                     if (!user || !user?.hashedPassword) {
-                        throw new Error('User not Registered. \n Please Register and try again');
+                        throw new Error('Useruser not Registered. \n Please Register and try again');
                     }
 
                     const isCorrectPassword = await bcrypt.compare(

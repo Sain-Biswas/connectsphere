@@ -28,7 +28,7 @@ const LargeLeftSidebar = () => {
             </Button>
             <Button
                 onClick={() => {
-
+                    router.push('/community');
                 }}
                 variant='ghost'
                 className={btnClasses}
@@ -40,7 +40,7 @@ const LargeLeftSidebar = () => {
             </Button>
             <Button
                 onClick={() => {
-
+                    router.push('/saved');
                 }}
                 variant='ghost'
                 className={btnClasses}
@@ -52,7 +52,7 @@ const LargeLeftSidebar = () => {
             </Button>
             <Button
                 onClick={() => {
-
+                    router.push('/messaging');
                 }}
                 variant='ghost'
                 className={btnClasses}
@@ -64,7 +64,7 @@ const LargeLeftSidebar = () => {
             </Button>
             <Button
                 onClick={() => {
-
+                    router.push('/post');
                 }}
                 variant='ghost'
                 className={btnClasses}
@@ -76,7 +76,7 @@ const LargeLeftSidebar = () => {
             </Button>
             <Button
                 onClick={() => {
-
+                    router.push('/settings');
                 }}
                 variant='ghost'
                 className={btnClasses}
