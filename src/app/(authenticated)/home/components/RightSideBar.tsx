@@ -5,7 +5,7 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Input } from '@/components/ui/input';
 import { Users } from '@prisma/client';
 import { useRouter } from 'next/navigation';
-import React, { ChangeEvent, use, useMemo, useState } from 'react'
+import React, { ChangeEvent, use, useMemo, useState } from 'react';
 
 interface RightSideBarProps {
     users: Users[] | undefined
@@ -32,14 +32,14 @@ const RightSideBar: React.FC<RightSideBarProps> = ({ users }) => {
             <div className='flex flex-col gap-1'>
                 {
                     filteredUsers?.map((user: Users) => (
-                        <Dialog>
+                        <Dialog key={user.id}>
                             <DialogTrigger asChild>
                                 <div className='border-2 border-secondary hover:bg-secondary/50 hover:border-primary flex gap-2 p-2 justify-start rounded-md'>
                                     <Avatar>
                                         <AvatarImage src={user.image || ""} alt='' />
                                         <AvatarFallback className=''>{user.firstName.charAt(0)}{user.lastName.charAt(0)}</AvatarFallback>
                                     </Avatar>
-                                    <div className=''>
+                                    <div>
                                         <p>{user.firstName}{' '}{user.lastName}</p>
                                         <p>{user.username}</p>
                                     </div>

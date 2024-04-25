@@ -28,14 +28,14 @@ const LargeLeftSidebar = () => {
             </Button>
             <Button
                 onClick={() => {
-                    router.push('/community');
+                    router.push('/friends');
                 }}
                 variant='ghost'
                 className={btnClasses}
             >
                 <div className="flex w-[9.4rem] justify-start ">
                     <Community className="h-8 w-8" />
-                    <p className={defClasses}>Community</p>
+                    <p className={defClasses}>Friends</p>
                 </div>
             </Button>
             <Button
@@ -72,18 +72,6 @@ const LargeLeftSidebar = () => {
                 <div className="flex w-[9.4rem] justify-start ">
                     <NewPlus className="h-8 w-8" />
                     <p className={defClasses}>New Post</p>
-                </div>
-            </Button>
-            <Button
-                onClick={() => {
-                    router.push('/settings');
-                }}
-                variant='ghost'
-                className={btnClasses}
-            >
-                <div className="flex w-[9.4rem] justify-start ">
-                    <Settings className="h-8 w-8" />
-                    <p className={defClasses}>Settings</p>
                 </div>
             </Button>
         </>

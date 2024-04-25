@@ -28,7 +28,7 @@ const MobileFooter = () => {
                 size='icon'
                 className={btnClasses}
                 onClick={() => {
-                    router.push('/community');
+                    router.push('/friends');
                 }}
             >
                 <Community className="h-8 w-8" />
@@ -62,16 +62,6 @@ const MobileFooter = () => {
                 }}
             >
                 <NewPlus className="h-8 w-8" />
-            </Button>
-            <Button
-                variant='ghost'
-                size='icon'
-                className={btnClasses}
-                onClick={() => {
-                    router.push('/settings');
-                }}
-            >
-                <Settings className="h-8 w-8" />
             </Button>
         </div>
     )
