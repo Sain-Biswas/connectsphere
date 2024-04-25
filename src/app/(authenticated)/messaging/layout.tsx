@@ -1,26 +1,29 @@
-'use client';
-import React from 'react'
-import SideChatBar from './components/SideChatBar'
-import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
+import getConversations from "@/resources/functions/getConversations";
+import ConversationList from "./components/ConversationList";
+import LayoutMessageBox from "./components/LayoutMessageBox";
+import getOtherUsers from "@/resources/functions/getOtherUsers";
 
-const Layout = ({
-    children
-}: {
-    children: React.ReactNode
-}) => {
-    const path = usePathname();
+
+export default async function LayOut({ children }: { children: React.ReactNode }) {
+    const conversations = await getConversations();
+    const users = await getOtherUsers()
 
     return (
-        <div className='h-[calc(100vh-7.05rem)] md:h-[calc(100vh-4.1rem)] w-full flex'>
-            <div className={cn('w-full md:w-64 md:border-r md:border-primary', (path !== '/messaging') && 'hidden md:block')}>
-                <SideChatBar />
-            </div>
-            <div className={cn('flex-grow', (path === '/messaging') ? 'hidden md:block' : 'block')}>
+        <>
+            <div className="hidden w-full min-w-64 h-[calc(100vh-3rem)] lg:flex">
+                <ConversationList
+                    users={users}
+                    initialItems={conversations}
+                />
                 {children}
             </div>
-        </div>
+            <div className="w-full h-[calc(100vh-3rem)] flex lg:hidden">
+                <LayoutMessageBox
+                    users={users}
+                    conversations={conversations}
+                />
+                {children}
+            </div>
+        </>
     )
 }
-
-export default Layout

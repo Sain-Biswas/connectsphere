@@ -1,11 +1,15 @@
-import React from 'react'
+import getConversations from "@/resources/functions/getConversations";
+import getOtherUsers from "@/resources/functions/getOtherUsers";
+import EmptyState from "./components/EmptyState";
 
-const page = () => {
+
+export default async function Home() {
+    const conversations = await getConversations();
+    const users = await getOtherUsers();
+
     return (
-        <div className='w-full h-full flex justify-center items-center font-mono text-2xl font-bold'>
-            Select a conversation from the left menu to Start.
+        <div className="w-full hidden lg:block">
+            <EmptyState />
         </div>
     )
 }
-
-export default page

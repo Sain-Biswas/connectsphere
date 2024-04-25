@@ -5,21 +5,21 @@ import getSession from './getSession';
 export default async function getOtherUserProfile(id: string) {
     try {
         if (!id) {
-            return []
+            return null
         }
 
-        const profile = await prisma.users.findUnique({
+        const profile = await prisma.users.findFirst({
             where: {
                 id: id
             },
         });
 
         if (!profile) {
-            return []
+            return null
         }
 
         return profile
     } catch (error: any) {
-        return []
+        return null
     }
 }

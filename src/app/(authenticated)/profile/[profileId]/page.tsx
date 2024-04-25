@@ -6,6 +6,7 @@ import UniPosts from '../components/UniPosts';
 import getCurrentUser from '@/resources/functions/getCurrentUser';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import FriendButton from './components/FriendButton';
 
 interface PageParams {
     profileId: string
@@ -16,15 +17,38 @@ const Page = async ({ params }: { params: PageParams }) => {
     const profile = await getOtherUserProfile(profileId);
     const [posts, user] = await Promise.all([getOthersPosts(profileId), getCurrentUser()]);
 
+    const conversationId = profile?.conversationIds.filter((d) => user?.conversationIds.includes(d))[0];
+
     return (
         <div className='grid grid-cols-2'>
-            <div className='flex justify-center items-center gap-3'>
-                <div>
-                    <Avatar className='w-36 h-36 rounded-md'>
+            <div className='flex flex-col justify-center items-center gap-3 w-full'>
+                <div className='flex flex-col items-center gap-2'>
+                    <Avatar className='w-48 h-48 rounded-md'>
                         <AvatarImage src={""} alt='' />
-                        <AvatarFallback className='w-36 h-36 text-2xl rounded-md'>SS</AvatarFallback>
+                        <AvatarFallback className='w-48 h-48 text-8xl font-mono rounded-md'>{profile?.firstName.charAt(0).toUpperCase()}{profile?.lastName.charAt(0).toUpperCase()}</AvatarFallback>
                     </Avatar>
-                    <p>Other User</p>
+                    <div className='flex flex-col items-center'>
+                        <p className='text-4xl font-bold'>{profile?.firstName}{" "}{profile?.lastName}</p>
+                        <p className='font-mono text-gray-400 text-lg'>{profile?.username}</p>
+                    </div>
+                </div>
+                <div className='flex justify-around w-full'>
+                    <div className='flex flex-col gap-1 items-center'>
+                        <p className='text-lg'>{posts.length}</p>
+                        <p className='text-xl'>Posts</p>
+                    </div>
+                    <div className='flex flex-col gap-1 items-center'>
+                        <p className='text-lg'>{profile?.friendIds.length}</p>
+                        <p className='text-xl'>Friends</p>
+                    </div>
+                </div>
+                <div className='h-20 w-full p-2 text-center'>
+                    {
+                        (!profile?.bio) ? (<p className=''>Bio not updated by user.</p>) : (<p className=''>{profile?.bio}</p>)
+                    }
+                </div>
+                <div>
+                    <FriendButton friendIds={user?.friendIds} acceptRequestIds={user?.acceptrequestIds} sentRequestIds={user?.sentrequestIds} userId={user?.id} profileId={profile?.id} convId={conversationId} />
                 </div>
             </div>
             <div className='p-2'>
