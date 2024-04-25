@@ -22,7 +22,7 @@ const Page = async () => {
                     <div className='flex-wrap gap-3 justify-stretch'>
                         {
                             friends?.map((f) => (
-                                <FriendPageCard data={f} action='remove' userId={currentUser?.id} user={currentUser} />
+                                <FriendPageCard key={f.id} data={f} action='remove' userId={currentUser?.id} user={currentUser} />
                             ))
                         }
                     </div>
@@ -31,7 +31,7 @@ const Page = async () => {
                     <div className='flex-wrap gap-3 justify-stretch'>
                         {
                             accept?.map((f) => (
-                                <FriendPageCard data={f} action='accept' userId={currentUser?.id} user={currentUser} />
+                                <FriendPageCard key={f.id} data={f} action='accept' userId={currentUser?.id} user={currentUser} />
                             ))
                         }
                     </div>
@@ -40,7 +40,7 @@ const Page = async () => {
                     <div className='flex-wrap gap-3 justify-stretch'>
                         {
                             sent?.map((f) => (
-                                <FriendPageCard data={f} action='cancel' userId={currentUser?.id} user={currentUser} />
+                                <FriendPageCard key={f.id} data={f} action='cancel' userId={currentUser?.id} user={currentUser} />
                             ))
                         }
                     </div>

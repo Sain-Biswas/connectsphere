@@ -62,7 +62,7 @@ const UniPosts: React.FC<UniPostsProps> = ({ data, userId }) => {
         <div className='w-full m-auto p-3'>
             {
                 data.map((post: FullPostType) => (
-                    <Card className="max-w-[26rem] w-full m-auto font-mono mb-2">
+                    <Card key={post.id} className="max-w-[26rem] w-full m-auto font-mono mb-2">
                         <CardHeader className="flex flex-row flex-wrap justify-end p-3">
                             <div>
                                 <Dialog>
